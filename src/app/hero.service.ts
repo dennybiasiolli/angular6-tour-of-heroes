@@ -9,7 +9,11 @@ export class HeroService {
 
   constructor() { }
 
-  getHeroes(): Hero[] {
-    return HEROES;
+  getHeroes(): Promise<Hero[]> {
+    return new Promise((resolve: Function) => {
+      setTimeout(() => {
+        resolve(HEROES);
+      }, 1000);
+    });
   }
 }
